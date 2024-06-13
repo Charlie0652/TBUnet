@@ -77,22 +77,22 @@ if __name__ == "__main__":
     seeding(42)
 
     """ Load dataset """
-    path = "E:/jiawei/ConVUnext/data/ISIC"       # 数据集路径 #
-    # path = "E:/jiawei/ConVUnext/data/XIROU"
-    # path = "E:/jiawei/ConVUnext/data/BUSI"
+    path = "E:/ConVUnext/data/ISIC"       # 数据集路径 #
+    # path = "E:/ConVUnext/data/XIROU"
+    # path = "E:/ConVUnext/data/BUSI"
     (train_x, train_y), (test_x, test_y) = load_data(path)
 
     """ Hyperparameters """
     size = (512, 512)
     num_iter = 1
-    checkpoint_path = "E:/jiawei/TBUnet-main/data/ConVUnex-checkpoint1.pth"     # 权重路径 #
-    # checkpoint_path = "E:/jiawei/TBUnet-main/data/xirou1-checkpoint.pth"
-    # checkpoint_path = "E:/jiawei/TBUnet-main/data/busi-checkpoint.pth"
+    checkpoint_path = "E:/TBUnet-main/data/checkpoint1.pth"     # 权重路径 #
+    # checkpoint_path = "E:/TBUnet-main/data/xirou1-checkpoint.pth"
+    # checkpoint_path = "E:/TBUnet-main/data/busi-checkpoint.pth"
 
     """ Directories """
-    create_dir("E:/jiawei/TBUnet-main/one-result")       # 测试可视化结果保存路径 #
-    # create_dir("E:/jiawei/TBUnet-main/xirou-result")
-    # create_dir("E:/jiawei/TBUnet-main/busi-result")
+    create_dir("E:/TBUnet-main/one-result")       # 测试可视化结果保存路径 #
+    # create_dir("E:/TBUnet-main/xirou-result")
+    # create_dir("E:/TBUnet-main/busi-result")
 
     """ Load the checkpoint """
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -106,9 +106,9 @@ if __name__ == "__main__":
     """ Testing """
     # prev_masks = init_mask(test_x, size)
     save_data = []
-    file = open("E:/jiawei/TBUnet-main/data/one_results.csv", "w")        # 测试量化结果保存路径 #
-    # file = open("E:/jiawei/TBUnet-main/data/xirou_results.csv", "w")
-    # file = open("E:/jiawei/TBUnet-main/data/busi_results.csv", "w")
+    file = open("E:/TBUnet-main/data/one_results.csv", "w")        # 测试量化结果保存路径 #
+    # file = open("E:/TBUnet-main/data/xirou_results.csv", "w")
+    # file = open("E:/TBUnet-main/data/busi_results.csv", "w")
     file.write("Iteration,Jaccard,F1,Recall,Precision,Specificity,Accuracy,F2,Mean Time,Mean FPS\n")
     # Jaccard是IoU  F1是Dice  #
 
@@ -205,6 +205,6 @@ if __name__ == "__main__":
             tmp.append(d)
 
         cat_images = np.concatenate(tmp, axis=1)
-        cv2.imwrite(f"E:/jiawei/TBUnet-main/one-result/{name}.png", cat_images)    # 测试可视化结果保存路径 #
-        # cv2.imwrite(f"E:/jiawei/TBUnet-main/xirou-result/{name}.png", cat_images)
-        # cv2.imwrite(f"E:/jiawei/TBUnet-main/busi-result/{name}.png", cat_images)
+        cv2.imwrite(f"E:/TBUnet-main/one-result/{name}.png", cat_images)    # 测试可视化结果保存路径 #
+        # cv2.imwrite(f"E:/TBUnet-main/xirou-result/{name}.png", cat_images)
+        # cv2.imwrite(f"E:/TBUnet-main/busi-result/{name}.png", cat_images)
