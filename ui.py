@@ -38,7 +38,7 @@ class MainWindow(QTabWidget):
         # # 初始化视频读取线程
         self.origin_shape = (512, 512)
         # 加载网络，图片单通道，分类为1。
-        checkpoint_path = "E:/jiawei/TBUnet-main/data/ConVUnex-checkpoint1.pth"    # 加载权重 #
+        checkpoint_path = "E:/TBUnet-main/data/ConVUnex-checkpoint1.pth"    # 加载权重 #
         net = TBUNET()
         net.load_state_dict(torch.load(checkpoint_path, map_location=device))
 
