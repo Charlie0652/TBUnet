@@ -125,19 +125,19 @@ if __name__ == "__main__":
     seeding(42)
 
     """ Directories """
-    create_dir("/home/ting/jiawei/ConVUnext/data/ISIC")    # 数据集路径 #
+    create_dir("/home/ConVUnext/data/ISIC")    # 数据集路径 #
 
     """ Training logfile """
-    train_log_path = "/home/ting/jiawei/TBUnet-main/data/CnVUnext-train_log1.txt"       # 每轮训练结果保存路径 #
-    # train_log_path = "/home/ting/jiawei/TBUnet-main/data/xirou1-train_log.txt"
-    # train_log_path = "/home/ting/jiawei/TBUnet-main/data/busi-train_log.txt"
-    # train_log_path = "/home/ting/jiawei/TBUnet-main/data/Eryuan-train_log.txt"
+    train_log_path = "/home/TBUnet-main/data/train_log1.txt"      # 每轮训练结果保存路径 # 
+    # train_log_path = "/home/TBUnet-main/data/xirou1-train_log.txt"
+    # train_log_path = "/home/TBUnet-main/data/busi-train_log.txt"
+    # train_log_path = "/home/TBUnet-main/data/Eryuan-train_log.txt"
     if os.path.exists(train_log_path):
         print("Log file exists")
     else:
-        train_log = open("/home/ting/jiawei/TBUnet-main/data/ConVUnext-train_log1.txt", "w")   # 每轮训练结果保存路径 #
-        # train_log = open("/home/ting/jiawei/TBUnet-main/data/xirou1-train_log.txt", "w")
-        # train_log = open("/home/ting/jiawei/TBUnet-main/data/Eryuan-train_log.txt", "w")
+        train_log = open("/home/TBUnet-main/data/train_log1.txt", "w")   # 每轮训练结果保存路径 #
+        # train_log = open("/home/TBUnet-main/data/xirou1-train_log.txt", "w")
+        # train_log = open("/home/TBUnet-main/data/Eryuan-train_log.txt", "w")
         train_log.write("\n")
         train_log.close()
 
@@ -150,12 +150,12 @@ if __name__ == "__main__":
     batch_size = 4
     num_epochs = 100
     lr = 1e-4
-    checkpoint_path = "/home/ting/jiawei/TBUnet-main/data/ConVUnext-checkpoint1.pth"    # 权重保存路径 #
-    # checkpoint_path = "/home/ting/jiawei/TBUnet-main/data/xirou1-checkpoint.pth"
-    # checkpoint_path = "/home/ting/jiawei/TBUnet-main/data/Eryuan-checkpoint.pth"
+    checkpoint_path = "/home/TBUnet-main/data/ConVUnext-checkpoint1.pth"    # 权重保存路径 #
+    # checkpoint_path = "/home/TBUnet-main/data/xirou1-checkpoint.pth"
+    # checkpoint_path = "/home/TBUnet-main/data/Eryuan-checkpoint.pth"
 
     """ Dataset """
-    path = "/home/ting/jiawei/ConVUnext/data/ISIC"      # 数据集路径 #
+    path = "/home/ConVUnext/data/ISIC"      # 数据集路径 #
     (train_x, train_y), (valid_x, valid_y) = load_data(path)
     train_x, train_y = shuffling(train_x, train_y)
 
